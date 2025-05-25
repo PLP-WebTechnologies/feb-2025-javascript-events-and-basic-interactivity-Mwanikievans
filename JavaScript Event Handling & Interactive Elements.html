@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaSript event handling & Interactive Elements</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+    }
+body {
+    margin: 0;
+}
+/* Style the header */
+.header {
+    background-color: #72c8e0;
+    padding: 20px;
+    text-align: center;
+}
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #13f39d;
+}
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #0c0000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: #068ff7;
+}
+</style>
+</head>
+<body>
+    <div class="header">
+<h1>Java Script addEventListener</h1>
+</div>
+    <div class="topnav">
+    <a href="#">Home</a>
+    <a href="#">Contact</a>
+    <a href="#">About</a>
+</div>
+    <h2>Enter your email and password to continue</h2>
+    <form action="/action_page.php">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+    <label for="pwd">Password:</label>
+    <input type="password" id="pwd" name="pwd" minlength="8"><br><br>
+    </form>
+    <p>If you click submit, without filling out the text field,
+    your browser will display an error message.</p>
+    <form action="/action_page.php">
+        <label for="username">Username: </label>
+        <input type="text" id="username" name="username"><br><br>
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+    </form>
+    <h2>JavaScript addEventListener.</h2>
+<p>This example uses the addEventListener method to execute a function when a user clicks on a button.</p>
+<button id="myBtn">Try it</button>
+<p>Click the button bellow to see the animation of the red box.</p>
+<p><button onclick="myMove()">Click Me</button></p>
+    <div id="container">
+    <div id="animate" style="width:50px;height:50px;background-color:red;position:absolute;"></div>
+</div>
+<script>
+    function myMove() {
+    let id = null;
+    const elem = document.getElementById("animate");
+    let pos = 0;
+clearInterval(id);
+id = setInterval(frame, 5);
+function frame() {
+    if (pos == 350) {
+    clearInterval(id);
+    } else {
+    pos++;
+    elem.style.top = pos + "px";
+    elem.style.left = pos + "px";
+    }
+}
+}
+document.getElementById("myBtn").addEventListener("click", myFunction);
+function myFunction() {
+alert("Hello World!");
+}
+</script>
+<button class="add-to-cart-button">
+    Add to Cart
+</button>
+<button class="signup-button">
+    Sign Up
+</button>
+<button class="post-button">
+    Comment
+</button>
+</body>
+</html>
